@@ -93,7 +93,7 @@ def main():
           loop = False
     if tronlog == True:
       tronpast.append((tronx,trony))
-    print ('at',tronx,",",trony)
+    print ('You at',tronx,",",trony)
 
 
     #foe turn
@@ -113,7 +113,21 @@ def main():
     foex = RoundToNearest(foe.xcor(), 50)
     foey = RoundToNearest(foe.ycor(), 50)
     foe.goto(foex,foey)
+    if (foex,foey) in tronpast:
+      print ("Foe crashed into a wall!\nRestart?(y/n)")
+      restart = input()
+      if restart == "y":
+        tron.goto(0,0)
+        tron.clear()
+        foe.goto(0,100)
+        foe.clear()
+        print ("~~~~~~~~~~~~~~~  RESTART GAME  ~~~~~~~~~~~~~~~~")
+        tronpast = []
+      else:
+        loop = False
     
+    tronpast.append((foex,foey))
+    print ('Foe at',foex,",",foey)
 
 main()
 print ("exiting")
