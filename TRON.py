@@ -25,13 +25,19 @@ def main():
   tron.down()
   tron.color('blue')
   tron.goto(0,0)
+  tron.clear()
   tronlog = True
   tronpast = [(0,0)]
-
+  foe = turtle.Turtle()
+  foe.goto(0,100)
+  foe.clear()
+  foe.down()
+  foe.color('red')
+  
   #game begin
   loop = True;
   while loop == True:
-
+    
     quest = input()
     forward = False
     liftup = False
@@ -55,6 +61,8 @@ def main():
     elif quest == "o":
       tron.goto(0,0)
       tron.clear()
+      foe.goto(0,100)
+      foe.clear()
       print ("~~~~~~~~~~~~~~~  RESTART GAME  ~~~~~~~~~~~~~~~~")
       tronpast = []
     elif quest == "p":
@@ -77,6 +85,8 @@ def main():
         if restart == "y":
           tron.goto(0,0)
           tron.clear()
+          foe.goto(0,100)
+          foe.clear()
           print ("~~~~~~~~~~~~~~~  RESTART GAME  ~~~~~~~~~~~~~~~~")
           tronpast = []
         else:
@@ -84,7 +94,26 @@ def main():
     if tronlog == True:
       tronpast.append((tronx,trony))
     print ('at',tronx,",",trony)
+
+
     #foe turn
+
+    rotate = randint(1,3)
+    direction = 0
+    foeforward = False
+    if rotate == (1):
+      direction = randint(1,2)
+      if direction == (1):
+        foe.left(45)
+      elif direction == (2):
+        foe.right(45)
+    print ("rotate: ",rotate)
+    print ("direction: ",direction)
+    foe.forward(50)
+    foex = RoundToNearest(foe.xcor(), 50)
+    foey = RoundToNearest(foe.ycor(), 50)
+    foe.goto(foex,foey)
+    
 
 main()
 print ("exiting")
