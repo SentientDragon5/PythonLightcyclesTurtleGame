@@ -31,7 +31,7 @@ def main():
   #game begin
   loop = True;
   while loop == True:
-    
+
     quest = input()
     forward = False
     liftup = False
@@ -84,11 +84,7 @@ def main():
     if tronlog == True:
       tronpast.append((tronx,trony))
     print ('at',tronx,",",trony)
-
-
     #foe turn
-
-    
 
 main()
 print ("exiting")
