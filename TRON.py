@@ -125,6 +125,7 @@ def main():
         tronpast = []
       else:
         loop = False
+        
     
     tronpast.append((foex,foey))
     print ('Foe at',foex,",",foey)
