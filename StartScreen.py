@@ -4,124 +4,58 @@ start = turtle.Turtle()
 start.hideturtle()
 start.color('white')
 
-#top left of T
+left_T = [(-85,50),(-75,50),(-75,40),(-85,40)]
 start.up()
 start.goto(-85,40)
 start.down()
+for left_Tvar in left_T:
+    start.goto(left_Tvar)
 
-start.goto(-85,50);
-start.goto(-75,50);
-start.goto(-75,40);
-start.goto(-85,40);
-
-#bottom of T, top right of T, Top of R
+top_R = [(-70,40),(-60,50),(-20,50),(-5,45),(0,40),(-55,40),(-60,35),(-60,5),(-70,5)]
 start.up()
 start.goto(-70,5)
 start.down()
+for top_Rvar in top_R:
+    start.goto(top_Rvar)
 
-start.goto(-70,40)
-start.goto(-60,50);
-start.goto(-20,50);
-start.goto(-5,45);
-start.goto(0,40);
-start.goto(-55,40);
-start.goto(-60,35);
-start.goto(-60,5);
-start.goto(-70,5);
-
-#bottom left of R
+left_R = [(-35,35),(-35,5),(-45,5),(-45,35)]
 start.up()
 start.goto(-45,35);
 start.down()
+for left_Rvar in left_R:
+    start.goto(left_Rvar)
 
-start.goto(-35,35);
-start.goto(-35,5);
-start.goto(-45,5);
-start.goto(-45,35);
-
-#bottom right of R
+right_R = [(0,35),(-5,30),(-20,25),(0,5),(-10,5),(-30,25),(-30,35)]
 start.up()
 start.goto(-30,35);
 start.down()
+for right_Rvar in right_R:
+    start.goto(right_Rvar)
 
-start.goto(0,35);
-start.goto(-5,30);
-start.goto(-20,25);
-start.goto(0,5);
-start.goto(-10,5);
-start.goto(-30,25);
-start.goto(-30,35);
-
-#outside of O
+out_O = [(10,45),(20,50),(35,50),(45,45),(50,35),(50,20),(45,10),(35,5),(20,5),(10,10),(5,20),(5,35)]
 start.up()
 start.goto(5,35);
 start.down()
+for out_Ovar in out_O:
+    start.goto(out_Ovar)
 
-start.goto(10,45);
-start.goto(20,50);
-start.goto(35,50);
-start.goto(45,45);
-start.goto(50,35);
-start.goto(50,20);
-start.goto(45,10);
-start.goto(35,5);
-start.goto(20,5);
-start.goto(10,10);
-start.goto(5,20);
-start.goto(5,35)
-
-#inside of O
+in_O = [(25,40),(30,40),(40,30),(40,25),(30,15),(25,15),(15,25),(15,30)]
 start.up()
 start.goto(15,30);
 start.down()
+for in_Ovar in in_O:
+    start.goto(in_Ovar)
 
-start.goto(25,40);
-start.goto(30,40);
-start.goto(40,30);
-start.goto(40,25);
-start.goto(30,15);
-start.goto(25,15);
-start.goto(15,25);
-start.goto(15,30);
-start.up()
-start.goto(15,30);
-start.down()
-
-#left N
+left_N = [(55,50),(60,50),(70,30),(70,25),(63,25),(63,5),(55,5)]
 start.up()
 start.goto(55,5);
 start.down()
+for left_Nvar in left_N:
+    start.goto(left_Nvar)
 
-start.goto(55,50);
-start.goto(60,50);
-start.goto(70,30);
-start.goto(70,25);
-start.goto(63,25);
-start.goto(63,5);
-start.goto(55,5);
-
-#right N 3 away
-start.up()
-start.goto(73,30);
-start.down()
-
-start.goto(73,25);
-start.goto(83,5);
-start.goto(88,5);
-start.goto(88,50);
-start.goto(80,50);
-start.goto(80,30);
-start.goto(73,30);
-
-#right N up close
+right_N = [(70,25),(80,5),(85,5),(85,50),(77,50),(77,30),(70,30)]
 start.up()
 start.goto(70,30);
 start.down()
-
-start.goto(70,25);
-start.goto(80,5);
-start.goto(85,5);
-start.goto(85,50);
-start.goto(77,50);
-start.goto(77,30);
-start.goto(70,30);
+for right_Nvar in right_N:
+    start.goto(right_Nvar)
