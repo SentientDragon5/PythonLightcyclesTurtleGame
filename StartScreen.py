@@ -1,8 +1,8 @@
 import turtle
 turtle.bgcolor("black")
-start = turtle.Turtle()
+startScreen = turtle.Turtle()
 start.hideturtle()
-start.color('white')
+startScreen.color('white')
 
 skip = False
 big = [("liftup"),(-85,40),(-85,50),(-75,50),(-75,40),(-85,40),
@@ -16,9 +16,7 @@ big = [("liftup"),(-85,40),(-85,50),(-75,50),(-75,40),(-85,40),
        ]
 for i in big:
     if skip == True:
-        start.up()
-        start.goto(i)
-        start.down()
+        startScreen.up(); start.goto(i); start.down()
     skip = False
     if i == "liftup":
         skip = True
