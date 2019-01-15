@@ -38,6 +38,7 @@ def RoundToNearest(value, roundTarget):
   tmp = abs(iValue)
   tmp = tmp + int(iRound/2)
   tmp = int(tmp / iRound)
+  
   tmp = int(tmp * iRound)
   if (iValue < 0):
     tmp = tmp * -1
@@ -123,10 +124,10 @@ def main():
 
     #foe turn
 
-    rotate = randint(1,3)
+    rotate = randint(1,4)
     direction = 0
     foeforward = False
-    if rotate == (1):
+    if rotate >= (1):
       direction = randint(1,2)
       if direction == (1):
         foe.left(45)
