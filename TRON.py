@@ -58,7 +58,10 @@ def main():
   foe.goto(0,100)
   foe.clear()
   foe.down()
+  foex = 0
+  foey = 0
   foe.color('orange')
+  pointing = 0
   tronpast = [(0,0)]
   
   #game begin
@@ -126,15 +129,158 @@ def main():
 
     rotate = randint(1,4)
     direction = 0
+    foeLeft = True
+    foeForward = True
+    foeRight = True
+    LR = ('r')
+    for tempPoint in  ['l','f','r']:
+#    270
+# 180 + 000
+#    090
+      if pointing == 0:
+        if tempPoint == 'l':
+           if (foex + 50,foey + 50) in tronpast:
+             print ( "not left, pointing: ", pointing)
+             foeLeft = False
+        if tempPoint == 'f':
+           if (foex + 50,foey) in tronpast:
+             print ( "not forward, pointing: ", pointing)
+             foeForward = False
+        if tempPoint == 'r':
+           if (foex + 50,foey - 50) in tronpast:
+             print ( "not right, pointing: ", pointing)
+             foeRight = False
+    
+    if pointing == 45:
+        if tempPoint == 'l':
+           if (foex + 50,foey) in tronpast:
+             print ( "not left, pointing: ", pointing)
+             foeLeft = False
+        if tempPoint == 'f':
+           if (foex - 50,foey - 50) in tronpast:
+             print ( "not forward, pointing: ", pointing)
+             foeForward = False
+        if tempPoint == 'r':
+           if (foex - 50,foey) in tronpast:
+             print ( "not right, pointing: ", pointing)
+             foeRight = False
+             
+    if pointing == 90:
+        if tempPoint == 'l':
+           if (foex + 50,foey - 50) in tronpast:
+             print ( "not left, pointing: ", pointing)
+             foeLeft = False
+        if tempPoint == 'f':
+           if (foex,foey - 50) in tronpast:
+             print ( "not forward, pointing: ", pointing)
+             foeForward = False
+        if tempPoint == 'r':
+           if (foex - 50,foey - 50) in tronpast:
+             print ( "not right, pointing: ", pointing)
+             foeRight = False
+             
+    if pointing == 135:
+        if tempPoint == 'l':
+           if (foex,foey - 50) in tronpast:
+             print ( "not left, pointing: ", pointing)
+             foeLeft = False
+        if tempPoint == 'f':
+           if (foex - 50,foey - 50) in tronpast:
+             print ( "not forward, pointing: ", pointing)
+             foeForward = False
+        if tempPoint == 'r':
+           if (foex - 50,foey) in tronpast:
+             print ( "not right, pointing: ", pointing)
+             foeRight = False
+             
+    if pointing == 180:
+        if tempPoint == 'l':
+           if (foex - 50,foey - 50) in tronpast:
+             print ( "not left, pointing: ", pointing)
+             foeLeft = False
+        if tempPoint == 'f':
+           if (foex - 50,foey) in tronpast:
+             print ( "not forward, pointing: ", pointing)
+             foeForward = False
+        if tempPoint == 'r':
+           if (foex - 50,foey + 50) in tronpast:
+             print ( "not right, pointing: ", pointing)
+             foeRight = False
+             
+    if pointing == 225:
+        if tempPoint == 'l':
+           if (foex - 50,foey) in tronpast:
+             print ( "not left, pointing: ", pointing)
+             foeLeft = False
+        if tempPoint == 'f':
+           if (foex - 50,foey + 50) in tronpast:
+             print ( "not forward, pointing: ", pointing)
+             foeForward = False
+        if tempPoint == 'r':
+           if (foex,foey + 50) in tronpast:
+             print ( "not right, pointing: ", pointing)
+             foeRight = False
+
+    if pointing == 270:
+        if tempPoint == 'l':
+           if (foex - 50,foey + 50) in tronpast:
+             print ( "not left, pointing: ", pointing)
+             foeLeft = False
+        if tempPoint == 'f':
+           if (foex,foey + 50) in tronpast:
+             print ( "not forward, pointing: ", pointing)
+             foeForward = False
+        if tempPoint == 'r':
+           if (foex + 50,foey + 50) in tronpast:
+             print ( "not right, pointing: ", pointing)
+             foeRight = False
+             
+    if pointing == 315:
+        if tempPoint == 'l':
+           if (foex,foey + 50) in tronpast:
+             print ( "not left, pointing: ", pointing)
+             foeLeft = False
+        if tempPoint == 'f':
+           if (foex + 50,foey + 50) in tronpast:
+             print ( "not forward, pointing: ", pointing)
+             foeForward = False
+        if tempPoint == 'r':
+           if (foex + 50,foey) in tronpast:
+             print ( "not right, pointing: ", pointing)
+             foeRight = False
+    
     foeforward = False
-    if rotate >= (1):
-      direction = randint(1,2)
-      if direction == (1):
-        foe.left(45)
-      elif direction == (2):
-        foe.right(45)
+    if rotate >= (2):
+      direction = randint(1,3)
+      if LR == ('l'):
+        if foeLeft == False:
+          direction = (2)
+        if direction == (1) or (3) or (4):
+          foe.left(45)
+          pointing -= 45
+          LR = ('l')
+        elif direction == (2):
+          foe.right(45)
+          pointing += 45
+          LR = ('r')
+      else:
+        if foeRight == False:
+          direction = (1)
+        if direction == (1):
+          foe.left(45)
+          pointing -= 45
+          LR = ('l')
+        elif direction == (2) or (3) or (4):
+          foe.right(45)
+          pointing += 45
+          LR = ('r')
+    if pointing >= 360:
+      pointing -= 360
+    elif pointing < 0:
+      pointing += 360
     print ("rotate: ",rotate)
     print ("direction: ",direction)
+    print ("pointing: ",pointing)
     foe.forward(50)
     foex = RoundToNearest(foe.xcor(), 50)
     foey = RoundToNearest(foe.ycor(), 50)
