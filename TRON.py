@@ -34,7 +34,19 @@ def init():
   elif introQuest == "r":
     return True
     print ("RETURN ON")
-  
+def dotBack():
+  grid = turtle.Turtle();grid.hideturtle();grid.up();grid.color('cyan');grid.goto(0,0);
+  ready = turtle.Turtle();
+  ready.hideturtle();
+  ready.up();
+  ready.color('blue');
+  ready.goto(300,-300);
+  ready.dot(50)
+  for gridx in range(-300,300,50):
+      for gridy in range(-300,300,50):
+          grid.goto(gridx,gridy)
+          grid.dot(5)
+  ready.clear()
 
 def RoundToNearest(value, roundTarget):
   iValue = int(value)
@@ -51,6 +63,7 @@ def RoundToNearest(value, roundTarget):
 def main():
   gOutput = init()
   startScreen.clear()
+  dotBack()
   #tron initialize
   tron = turtle.Turtle()
   tron.down()
