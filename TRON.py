@@ -36,16 +36,12 @@ def init():
     print ("RETURN ON")
 def dotBack():
   grid = turtle.Turtle();grid.hideturtle();grid.up();grid.color('cyan');grid.goto(0,0);
-  ready = turtle.Turtle();
-  ready.hideturtle();
-  ready.up();
-  ready.color('blue');
-  ready.goto(300,-300);
-  ready.dot(50)
+  border = turtle.Turtle();border.hideturtle();border.up();border.color('cyan');border.goto(-300,-250);border.down();
+  ready = turtle.Turtle();ready.hideturtle();ready.up();ready.color('blue');ready.goto(300,-300);ready.dot(50)
   for gridx in range(-300,300,50):
       for gridy in range(-300,300,50):
-          grid.goto(gridx,gridy)
-          grid.dot(5)
+          grid.goto(gridx,gridy);grid.dot(5);
+  border.goto(-300,250);border.goto(300,250);border.goto(300,-300);border.goto(-300,-300);
   ready.clear()
 
 def RoundToNearest(value, roundTarget):
