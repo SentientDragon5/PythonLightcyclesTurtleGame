@@ -4,7 +4,84 @@ turtle.bgcolor("black")
 startScreen = turtle.Turtle()
 startScreen.hideturtle()
 startScreen.color('white')
-gOutput = False
+pen = turtle.Turtle()
+pen.hideturtle()
+gOutput = False#Change for outputs
+def printText(inStr,size,startx,starty,output,color):
+    #START SPOT
+    x = startx
+    y = starty
+    #RENDER INIT
+    pen.color(color)
+    skip = False
+    placeAt = {'x':x,'y':y,'size':size}
+    lettLoop = 1
+    #STRING PREP
+    myStr = []
+    for c in range(0,len(inStr),1):
+        myStr.append(inStr[c])
+    outList = []
+    #LOOP
+    for char in myStr:
+        letter = {' ':[]}
+        #A-Z
+        letter['a'] = [("l"),(x,y - size*1),(x + size*2,y - size*1),(x + size*2,y - size*4),(x,y - size*4),(x,y - size*2),(x + size*2,y - size*2)]
+        letter['b'] = [("l"),(x,y),(x,y - size*4),(x + size*2,y - size*4),(x + size*2,y - size*2),(x,y - size*2)]
+        letter['c'] = [("l"),(x + size*2,y - size*2),(x,y - size*2),(x,y - size*4),(x + size*2,y - size*4)]
+        letter['d'] = [("l"),(x + size*2,y),(x + size*2,y - size*4),(x,y - size*4),(x,y - size*2),(x + size*2,y - size*2)]
+        letter['e'] = [("l"),(x + size*2,y - size*4),(x,y - size*4),(x,y - size*2),(x + size*2,y - size*2),(x + size*2,y - size*3),(x,y - size*3)]
+        letter['f'] = [("l"),(x + size,y - size*4),(x + size,y),(x + size*2,y),(x + size*2,y - size*1),("l"),(x + size*2,y - size*2),(x,y - size*2)]
+        letter['g'] = [("l"),(x,y - size*4),(x + size*2,y - size*4),(x + size*2,y - size*1),(x,y - size*1),(x,y - size*3),(x + size*2,y - size*3)]
+        letter['h'] = [("l"),(x + size*2,y - size*4),(x + size*2,y - size*2),(x,y - size*2),(x,y - size*4),(x,y)]
+        letter['i'] = [("l"),(x + size*2,y - size*4),(x,y - size*4),(x + size*1,y - size*4),(x + size*1,y - size*2),(x + size*2,y - size*2),(x,y - size*2),("l"),(x + size*1,y - size*1),("d")]
+        letter['j'] = [("l"),(x + size*1,y - size*3),(x,y - size*3),(x,y - size*4),(x + size*2,y - size*4),(x + size*2,y - size*1),("l"),(x + size*2,y),("d")]
+        letter['k'] = [("l"),(x,y - size*4),(x,y - size*3),(x + size*2,y - size*4),(x,y - size*3),(x + size*2,y - size*2),(x,y - size*3),(x,y)]
+        letter['l'] = [("l"),(x + size*1,y - size*4),(x + size*1,y)]
+        letter['m'] = [("l"),(x,y - size*1),(x,y - size*4),(x,y - size*2),(x + size*2,y - size*2),(x + size*2,y - size*4),("l"),(x + size,y - size*2),(x + size,y - size*4)]
+        letter['n'] = [("l"),(x,y - size*1),(x,y - size*4),(x,y - size*2),(x + size*2,y - size*2),(x + size*2,y - size*4)]
+        letter['o'] = [("l"),(x,y - size*2),(x + size*2,y - size*2),(x + size*2,y - size*4),(x,y - size*4),(x,y - size*2)]
+        letter['p'] = [("l"),(x,y - size*4),(x,y),(x + size*2,y),(x + size*2,y - size*2),(x,y - size*2)]
+        letter['q'] = [("l"),(x + size*2,y - size*4),(x + size*2,y),(x,y),(x,y - size*2),(x + size*2,y - size*2)]
+        letter['r'] = [("l"),(x,y - size*4),(x,y - size*2),(x,y - size*3),(x + size*2,y - size*2)]
+        letter['s'] = [("l"),(x + size*2,y - size*2),(x,y - size*2),(x + size*2,y - size*4),(x,y - size*4)]
+        letter['t'] = [("l"),(x + size,y - size*4),(x + size,y),("l"),(x + size*2,y - size*2),(x,y - size*2)]
+        letter['u'] = [("l"),(x,y - size*2),(x,y - size*4),(x + size*2,y - size*4),(x + size*2,y - size*2)]
+        letter['v'] = [("l"),(x,y - size*2),(x + size,y - size*4),(x + size*2,y - size*2)]
+        letter['w'] = [("l"),(x,y - size*2),(x,y - size*4),(x + size*2,y - size*4),(x + size*2,y - size*2),("l"),(x + size,y - size*4),(x + size,y - size*2)]
+        letter['x'] = [("l"),(x + size*2,y - size*4),(x,y - size*2),("l"),(x,y - size*4),(x + size*2,y - size*2)]
+        letter['y'] = [("l"),(x,y),(x,y - size*2),(x + size*2,y - size*2),(x + size*2,y),(x + size*2,y - size*4),(x + size,y - size*4)]
+        letter['z'] = [("l"),(x,y - size*2),(x + size*2,y - size*2),(x,y - size*4),(x + size*2,y - size*4)]
+        #OTHER CHARS
+        letter['`'] = [("ENTER")]
+        #RENDER
+        for num in letter[char]:
+            if skip == True:
+                pen.up(); pen.goto(num); pen.down()
+            skip = False
+            if num == "d":
+                pen.dot(size/2)
+                skip = True
+            if num == "ENTER":
+                y -= size *6
+                x = startx - (size *3)
+                skip = True
+            if num == "l":
+                skip = True
+            elif num == "d":
+                skip = False
+            elif num == "ENTER":
+                skip = False
+            else:
+                pen.goto(num)
+            if output == True:
+                outList.append(num)
+        x += size *3
+        lettLoop += 1
+    if output == True:
+        outList.append(myStr)
+        return outList
+    else:
+        return ()
 def draw_TRON_word():
   skip = False
   big = [("liftup"),(-85,40),(-85,50),(-75,50),(-75,40),(-85,40),
@@ -27,6 +104,7 @@ def draw_TRON_word():
 #init
 def init():
   draw_TRON_word()
+  printText('press enter to begin world generation',4,-225,-20,False,'cyan')
   introQuest = input("Welcome to TRON! \n press ENTER to start game \n press H for help\n")
   if introQuest == "h":
     print ("\n press enter to move forward \n press a to turn left \n press d to turn right \n press q to turn off trail \n press e to turn on trail \n press o to restart game \n press p to quit game \n on game launch press r to  get variable output \n")
@@ -36,13 +114,14 @@ def init():
     print ("RETURN ON")
 def dotBack():
   grid = turtle.Turtle();grid.hideturtle();grid.up();grid.color('cyan');grid.goto(0,0);
-  border = turtle.Turtle();border.hideturtle();border.up();border.color('cyan');border.goto(-300,-250);border.down();
   ready = turtle.Turtle();ready.hideturtle();ready.up();ready.color('blue');ready.goto(300,-300);ready.dot(50)
   for gridx in range(-300,300,50):
       for gridy in range(-300,300,50):
           grid.goto(gridx,gridy);grid.dot(5);
-  border.goto(-300,250);border.goto(300,250);border.goto(300,-300);border.goto(-300,-300);
   ready.clear()
+def border():
+  border = turtle.Turtle();border.hideturtle();border.up();border.color('cyan');border.goto(-300,-300);border.down();
+  border.goto(-300,250);border.goto(250,250);border.goto(250,-300);border.goto(-300,-300);
 
 def RoundToNearest(value, roundTarget):
   iValue = int(value)
@@ -59,7 +138,9 @@ def RoundToNearest(value, roundTarget):
 def main():
   gOutput = init()
   startScreen.clear()
-  dotBack()
+  pen.clear()
+  #dotBack() #Change For dotted Background!
+  border()
   #tron initialize
   tron = turtle.Turtle()
   tron.down()
@@ -76,6 +157,14 @@ def main():
   foe.color('orange')
   pointing = 0
   tronpast = [(0,0)]
+  for m in range(-300,250,50):
+    tronpast.append((-300,m))
+  for m in range(-300,250,50):
+    tronpast.append((m,250))
+  for m in range(250,-300,-50):
+    tronpast.append((250,m))
+  for m in range(250,-300,-50):
+    tronpast.append((m,-300))
   
   #game begin
   loop = True;
