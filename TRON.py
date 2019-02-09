@@ -104,7 +104,7 @@ def draw_TRON_word():
 #init
 def init():
   draw_TRON_word()
-  printText('press enter to begin world generation',4,-225,-20,False,'cyan')
+  printText('press enter to start game',4,-150,-20,False,'cyan')
   introQuest = input("Welcome to TRON! \n press ENTER to start game \n press H for help\n")
   if introQuest == "h":
     print ("\n press enter to move forward \n press a to turn left \n press d to turn right \n press q to turn off trail \n press e to turn on trail \n press o to restart game \n press p to quit game \n on game launch press r to  get variable output \n")
@@ -407,8 +407,6 @@ def main():
       print ("Foe Left-Forward-Right: ",foeLeft,"-",foeForward,"-",foeRight)
       print ("tronpast: {",tronpast,"}\n")
     print (gOutput)
-    
-    
     
 main()
 print ("exiting")
