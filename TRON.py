@@ -224,126 +224,15 @@ def main():
     #foe turn
 
     rotate = randint(1,4)
+    AIchoice = []
     direction = 0
     foeLeft = True
     foeForward = True
     foeRight = True
     LR = ('r')
-    for tempPoint in  ['l','f','r']:
-#    270
-# 180 + 000
-#    090
-      if pointing == 0:
-        if tempPoint == 'l':
-           if (foex + 50,foey + 50) in tronpast:
-             AIchoice = ( "not left, pointing: ", pointing)
-             foeLeft = False
-        if tempPoint == 'f':
-           if (foex + 50,foey) in tronpast:
-             AIchoice = ( "not forward, pointing: ", pointing)
-             foeForward = False
-        if tempPoint == 'r':
-           if (foex + 50,foey - 50) in tronpast:
-             AIchoice = ( "not right, pointing: ", pointing)
-             foeRight = False
-    
-    if pointing == 45:
-        if tempPoint == 'l':
-           if (foex + 50,foey) in tronpast:
-             AIchoice = ( "not left, pointing: ", pointing)
-             foeLeft = False
-        if tempPoint == 'f':
-           if (foex - 50,foey - 50) in tronpast:
-             AIchoice = ( "not forward, pointing: ", pointing)
-             foeForward = False
-        if tempPoint == 'r':
-           if (foex - 50,foey) in tronpast:
-             AIchoice = ( "not right, pointing: ", pointing)
-             foeRight = False
-             
-    if pointing == 90:
-        if tempPoint == 'l':
-           if (foex + 50,foey - 50) in tronpast:
-             AIchoice = ( "not left, pointing: ", pointing)
-             foeLeft = False
-        if tempPoint == 'f':
-           if (foex,foey - 50) in tronpast:
-             AIchoice = ( "not forward, pointing: ", pointing)
-             foeForward = False
-        if tempPoint == 'r':
-           if (foex - 50,foey - 50) in tronpast:
-             AIchoice = ( "not right, pointing: ", pointing)
-             foeRight = False
-             
-    if pointing == 135:
-        if tempPoint == 'l':
-           if (foex,foey - 50) in tronpast:
-             AIchoice = ( "not left, pointing: ", pointing)
-             foeLeft = False
-        if tempPoint == 'f':
-           if (foex - 50,foey - 50) in tronpast:
-             AIchoice = ( "not forward, pointing: ", pointing)
-             foeForward = False
-        if tempPoint == 'r':
-           if (foex - 50,foey) in tronpast:
-             AIchoice = ( "not right, pointing: ", pointing)
-             foeRight = False
-             
-    if pointing == 180:
-        if tempPoint == 'l':
-           if (foex - 50,foey - 50) in tronpast:
-             AIchoice = ( "not left, pointing: ", pointing)
-             foeLeft = False
-        if tempPoint == 'f':
-           if (foex - 50,foey) in tronpast:
-             AIchoice = ( "not forward, pointing: ", pointing)
-             foeForward = False
-        if tempPoint == 'r':
-           if (foex - 50,foey + 50) in tronpast:
-             AIchoice = ( "not right, pointing: ", pointing)
-             foeRight = False
-             
-    if pointing == 225:
-        if tempPoint == 'l':
-           if (foex - 50,foey) in tronpast:
-             AIchoice = ( "not left, pointing: ", pointing)
-             foeLeft = False
-        if tempPoint == 'f':
-           if (foex - 50,foey + 50) in tronpast:
-             AIchoice = ( "not forward, pointing: ", pointing)
-             foeForward = False
-        if tempPoint == 'r':
-           if (foex,foey + 50) in tronpast:
-             AIchoice = ( "not right, pointing: ", pointing)
-             foeRight = False
-
-    if pointing == 270:
-        if tempPoint == 'l':
-           if (foex - 50,foey + 50) in tronpast:
-             AIchoice = ( "not left, pointing: ", pointing)
-             foeLeft = False
-        if tempPoint == 'f':
-           if (foex,foey + 50) in tronpast:
-             AIchoice = ( "not forward, pointing: ", pointing)
-             foeForward = False
-        if tempPoint == 'r':
-           if (foex + 50,foey + 50) in tronpast:
-             AIchoice = ( "not right, pointing: ", pointing)
-             foeRight = False
-             
-    if pointing == 315:
-        if tempPoint == 'l':
-           if (foex,foey + 50) in tronpast:
-             AIchoice = ( "not left, pointing: ", pointing)
-             foeLeft = False
-        if tempPoint == 'f':
-           if (foex + 50,foey + 50) in tronpast:
-             AIchoice = ( "not forward, pointing: ", pointing)
-             foeForward = False
-        if tempPoint == 'r':
-           if (foex + 50,foey) in tronpast:
-             AIchoice = ( "not right, pointing: ", pointing)
-             foeRight = False
+    #    270
+    # 180 + 000
+    #    090
     
     foeforward = False
     if rotate >= (2):
