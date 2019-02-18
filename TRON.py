@@ -1,5 +1,6 @@
 import turtle
 from random import randint
+grestart = True
 turtle.bgcolor("black")
 startScreen = turtle.Turtle()
 startScreen.hideturtle()
@@ -136,6 +137,8 @@ def RoundToNearest(value, roundTarget):
   return tmp
 
 def main():
+  turnCounter = 1
+  grestart = True
   gOutput = init()
   startScreen.clear()
   pen.clear()
@@ -191,12 +194,7 @@ def main():
       print ("down")
       tronlog = True
     elif quest == "o":
-      tron.goto(0,0)
-      tron.clear()
-      foe.goto(0,100)
-      foe.clear()
-      print ("~~~~~~~~~~~~~~~  RESTART GAME  ~~~~~~~~~~~~~~~~")
-      tronpast = []
+        print ("~~~~~~~~~~~~~~~  RESTART GAME  ~~~~~~~~~~~~~~~~")
     elif quest == "p":
       loop = False
     elif quest == "":
@@ -213,16 +211,12 @@ def main():
     if liftup == False:
       if (tronx,trony) in tronpast:
         print ("you crashed into a wall!\nRestart?(y/n)")
-        restart = input()
-        if restart == "y":
-          tron.goto(0,0)
-          tron.clear()
-          foe.goto(0,100)
-          foe.clear()
+        restartyn = input()
+        if restartyn == "y":
           print ("~~~~~~~~~~~~~~~  RESTART GAME  ~~~~~~~~~~~~~~~~")
-          tronpast = []
         else:
           loop = False
+          grestart = False
     if tronlog == True:
       tronpast.append((tronx,trony))
     print ('You at',tronx,",",trony)
@@ -242,113 +236,113 @@ def main():
       if pointing == 0:
         if tempPoint == 'l':
            if (foex + 50,foey + 50) in tronpast:
-             #print ( "not left, pointing: ", pointing)
+             AIchoice = ( "not left, pointing: ", pointing)
              foeLeft = False
         if tempPoint == 'f':
            if (foex + 50,foey) in tronpast:
-             #print ( "not forward, pointing: ", pointing)
+             AIchoice = ( "not forward, pointing: ", pointing)
              foeForward = False
         if tempPoint == 'r':
            if (foex + 50,foey - 50) in tronpast:
-             #print ( "not right, pointing: ", pointing)
+             AIchoice = ( "not right, pointing: ", pointing)
              foeRight = False
     
     if pointing == 45:
         if tempPoint == 'l':
            if (foex + 50,foey) in tronpast:
-             #print ( "not left, pointing: ", pointing)
+             AIchoice = ( "not left, pointing: ", pointing)
              foeLeft = False
         if tempPoint == 'f':
            if (foex - 50,foey - 50) in tronpast:
-             #print ( "not forward, pointing: ", pointing)
+             AIchoice = ( "not forward, pointing: ", pointing)
              foeForward = False
         if tempPoint == 'r':
            if (foex - 50,foey) in tronpast:
-             #print ( "not right, pointing: ", pointing)
+             AIchoice = ( "not right, pointing: ", pointing)
              foeRight = False
              
     if pointing == 90:
         if tempPoint == 'l':
            if (foex + 50,foey - 50) in tronpast:
-             #print ( "not left, pointing: ", pointing)
+             AIchoice = ( "not left, pointing: ", pointing)
              foeLeft = False
         if tempPoint == 'f':
            if (foex,foey - 50) in tronpast:
-             #print ( "not forward, pointing: ", pointing)
+             AIchoice = ( "not forward, pointing: ", pointing)
              foeForward = False
         if tempPoint == 'r':
            if (foex - 50,foey - 50) in tronpast:
-             #print ( "not right, pointing: ", pointing)
+             AIchoice = ( "not right, pointing: ", pointing)
              foeRight = False
              
     if pointing == 135:
         if tempPoint == 'l':
            if (foex,foey - 50) in tronpast:
-             #print ( "not left, pointing: ", pointing)
+             AIchoice = ( "not left, pointing: ", pointing)
              foeLeft = False
         if tempPoint == 'f':
            if (foex - 50,foey - 50) in tronpast:
-             #print ( "not forward, pointing: ", pointing)
+             AIchoice = ( "not forward, pointing: ", pointing)
              foeForward = False
         if tempPoint == 'r':
            if (foex - 50,foey) in tronpast:
-             #print ( "not right, pointing: ", pointing)
+             AIchoice = ( "not right, pointing: ", pointing)
              foeRight = False
              
     if pointing == 180:
         if tempPoint == 'l':
            if (foex - 50,foey - 50) in tronpast:
-             #print ( "not left, pointing: ", pointing)
+             AIchoice = ( "not left, pointing: ", pointing)
              foeLeft = False
         if tempPoint == 'f':
            if (foex - 50,foey) in tronpast:
-             #print ( "not forward, pointing: ", pointing)
+             AIchoice = ( "not forward, pointing: ", pointing)
              foeForward = False
         if tempPoint == 'r':
            if (foex - 50,foey + 50) in tronpast:
-             #print ( "not right, pointing: ", pointing)
+             AIchoice = ( "not right, pointing: ", pointing)
              foeRight = False
              
     if pointing == 225:
         if tempPoint == 'l':
            if (foex - 50,foey) in tronpast:
-             #print ( "not left, pointing: ", pointing)
+             AIchoice = ( "not left, pointing: ", pointing)
              foeLeft = False
         if tempPoint == 'f':
            if (foex - 50,foey + 50) in tronpast:
-             #print ( "not forward, pointing: ", pointing)
+             AIchoice = ( "not forward, pointing: ", pointing)
              foeForward = False
         if tempPoint == 'r':
            if (foex,foey + 50) in tronpast:
-             #print ( "not right, pointing: ", pointing)
+             AIchoice = ( "not right, pointing: ", pointing)
              foeRight = False
 
     if pointing == 270:
         if tempPoint == 'l':
            if (foex - 50,foey + 50) in tronpast:
-             #print ( "not left, pointing: ", pointing)
+             AIchoice = ( "not left, pointing: ", pointing)
              foeLeft = False
         if tempPoint == 'f':
            if (foex,foey + 50) in tronpast:
-             #print ( "not forward, pointing: ", pointing)
+             AIchoice = ( "not forward, pointing: ", pointing)
              foeForward = False
         if tempPoint == 'r':
            if (foex + 50,foey + 50) in tronpast:
-             #print ( "not right, pointing: ", pointing)
+             AIchoice = ( "not right, pointing: ", pointing)
              foeRight = False
              
     if pointing == 315:
         if tempPoint == 'l':
            if (foex,foey + 50) in tronpast:
-             #print ( "not left, pointing: ", pointing)
+             AIchoice = ( "not left, pointing: ", pointing)
              foeLeft = False
         if tempPoint == 'f':
            if (foex + 50,foey + 50) in tronpast:
-             #print ( "not forward, pointing: ", pointing)
+             AIchoice = ( "not forward, pointing: ", pointing)
              foeForward = False
         if tempPoint == 'r':
            if (foex + 50,foey) in tronpast:
-             #print ( "not right, pointing: ", pointing)
+             AIchoice = ( "not right, pointing: ", pointing)
              foeRight = False
     
     foeforward = False
@@ -386,17 +380,12 @@ def main():
     foe.goto(foex,foey)
     if (foex,foey) in tronpast:
       print ("Foe crashed into a wall!\nRestart?(y/n)")
-      restart = input()
-      if restart == "y":
-        tron.goto(0,0)
-        tron.clear()
-        foe.goto(0,100)
-        foe.clear()
-        print ("~~~~~~~~~~~~~~~  RESTART GAME  ~~~~~~~~~~~~~~~~")
-        tronpast = []
+      restartyn = input()
+      if restartyn == "y":
+          print ("~~~~~~~~~~~~~~~  RESTART GAME  ~~~~~~~~~~~~~~~~")
       else:
-        loop = False
-    
+          loop = False
+          grestart = False
     tronpast.append((foex,foey))
     print ('Foe at',foex,",",foey)
     
@@ -406,8 +395,17 @@ def main():
       print ("pointing: ",pointing)
       print ("Foe Left-Forward-Right: ",foeLeft,"-",foeForward,"-",foeRight)
       print ("tronpast: {",tronpast,"}\n")
-    print (gOutput)
-    
-main()
+      print ("turn: ", turnCounter)
+      print (gOutput)
+      print (grestart)
+    print (AIchoice)
+    if grestart == False:
+        tron.hideturtle()
+        foe.hideturtle()
+        tron.clear()
+        foe.clear()
+    turnCounter += 1
+while grestart == True:
+    main()
 print ("exiting")
 exit()
